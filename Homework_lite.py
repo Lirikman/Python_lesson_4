@@ -42,5 +42,25 @@ def rarest_letter():
     random_list_names.sort()
     for i in random_list_names:
         letters_list.append(i[0])
-    return letters_list
+#    print(letters_list)
+
+    letters_dict = dict()
+    for i in letters_list:
+        if i in letters_dict:
+            letters_dict[i] += 1
+        else:
+            letters_dict[i] = 1
+#    print(letters_dict)
+
+    sorted_letters_dict = sorted(letters_dict, key=letters_dict.get)
+#    print(sorted_letters_dict)
+
+    letters = []
+    for key in sorted_letters_dict:
+        letters.append(key)
+
+    result = "Самая редкая буква с которой начинаются имена в списке: " + letters[0]
+
+    return result
+
 print(rarest_letter())
